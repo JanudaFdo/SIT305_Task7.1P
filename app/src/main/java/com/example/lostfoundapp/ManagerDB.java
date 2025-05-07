@@ -33,7 +33,6 @@ public class ManagerDB extends SQLiteOpenHelper {
 
     }
 
-    // "Post" table execution
     public Post getPost(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(POSTS_TABLE_NAME, new String[] { "id", "name", "phone", "description", "datetime", "location", "type" },
@@ -80,7 +79,7 @@ public class ManagerDB extends SQLiteOpenHelper {
         values.put("type", newPost.getType());
 
         long id = db.insert(POSTS_TABLE_NAME, null, values);
-        newPost.setId(id);  // Assuming Post has a setId method to set the ID after insertion
+        newPost.setId(id);
         return newPost;
     }
 
